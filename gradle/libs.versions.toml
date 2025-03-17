@@ -11,6 +11,7 @@ composeBom = "2024.09.00"
 ktor = "3.1.1"
 coil = "3.1.0"
 nav_version = "2.8.9"
+serialization = "1.6.3"
 
 
 [libraries]
@@ -36,6 +37,7 @@ ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = 
 
 coil-image = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "nav_version" }
+serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 
 [bundles]
 ktor-bundle = ["ktor-android", "ktor-core", "ktor-serialization", "ktor-logging"]
@@ -44,4 +46,5 @@ ktor-bundle = ["ktor-android", "ktor-core", "ktor-serialization", "ktor-logging"
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
