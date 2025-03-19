@@ -1,4 +1,4 @@
-package com.saiful.fakestore.data
+package com.saiful.fakestore.data.model
 
 import kotlinx.serialization.Serializable
 
