@@ -2,44 +2,62 @@ package com.saiful.fakestore.ui.login
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.saiful.fakestore.data.repository.LoginRepositoryImpl
+import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 
 @Composable
-fun LoginScreen() {
-    LoginScreenContent()
+fun LoginScreen(
+    viewModel: LoginViewModel = viewModel(),
+    navigateToProduct: () -> Unit
+) {
+
+    LaunchedEffect(Unit) {
+        viewModel.navigateToProduct.onEach {
+            if (it) {
+                navigateToProduct()
+            }
+        }.collect()
+    }
+
+    LoginScreenContent(viewModel)
 }
 
 @Composable
-fun LoginScreenContent(modifier: Modifier = Modifier) {
+fun LoginScreenContent(viewModel: LoginViewModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-        val apiService = remember { LoginViewModel() }
+        val username = remember { mutableStateOf("") }
+        val password = remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = username.value,
+            onValueChange = {
+                username.value = it
+            },
             label = { Text("Username") }
         )
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = password.value,
+            onValueChange = {
+                password.value = it
+            },
             label = { Text("Password") }
         )
 
         OutlinedButton(
             onClick = {
-                apiService.login()
-            }
+                viewModel.login()
+            },
+            enabled = username.value.isNotBlank() && password.value.isNotBlank()
         ) {
             Text("Login")
         }
@@ -49,5 +67,5 @@ fun LoginScreenContent(modifier: Modifier = Modifier) {
 @Composable
 @Preview(showBackground = true)
 fun LoginContentPreview() {
-    LoginScreenContent()
+    LoginScreenContent(viewModel())
 }

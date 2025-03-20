@@ -28,7 +28,9 @@ class MainActivity : ComponentActivity() {
                     startDestination = "login"
                 ) {
                     composable(route = "login") {
-                        LoginScreen()
+                        LoginScreen {
+                            navController.navigate("product")
+                        }
                     }
 
                     composable(route = "product") {
