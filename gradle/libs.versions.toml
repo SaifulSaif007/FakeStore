@@ -37,6 +37,7 @@ ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = 
 ktor-content = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 
 coil-image = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "nav_version" }
 serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 

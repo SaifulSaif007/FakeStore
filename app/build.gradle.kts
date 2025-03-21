@@ -59,6 +59,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.coil.image)
+    implementation(libs.coil.network)
     implementation(libs.bundles.ktor.bundle)
     implementation(libs.navigation)
     implementation(libs.serialization)
