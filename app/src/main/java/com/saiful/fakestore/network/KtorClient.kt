@@ -4,13 +4,13 @@ import android.util.Log
 import com.saiful.fakestore.domain.exception.*
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
-import io.ktor.client.plugins.*
+import io.ktor.client.plugins.DefaultRequest
+import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.*
 import io.ktor.client.plugins.observer.ResponseObserver
 import io.ktor.client.request.header
 import io.ktor.serialization.kotlinx.json.json
-import kotlinx.io.IOException
 import kotlinx.serialization.json.Json
 
 private const val NETWORK_TIME_OUT = 6_000

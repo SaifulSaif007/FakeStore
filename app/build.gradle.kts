@@ -63,4 +63,6 @@ dependencies {
     implementation(libs.bundles.ktor.bundle)
     implementation(libs.navigation)
     implementation(libs.serialization)
+
+    implementation(libs.bundles.koin.bundle)
 }
